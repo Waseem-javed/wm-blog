@@ -9,10 +9,11 @@ use Illuminate\Http\Request;
 class BlogController extends Controller {
 
     public function __construct(public readonly BlogService $blogService){
-
+        $this->middleware('auth');
     }
 
     public function blog(Request $request): View{
+        
         return view('blog',$this->blogService->getAllPosts($request));
     }
 

@@ -1,9 +1,5 @@
-@extends('layouts.master')
-
-@section('title','Posts')
-
 @foreach($blogs as $blog)
-<div class="card mb-2 border cardHover bg-light">
+<div class="card mb-2 border border-secondary cardHover bg-dark">
     <span onClick="redirectTo('{{$blog['url']}}')">
         <div class="row g-0">
             <div class="col-sm-4 col-lg-4 col-md-4 position-relative p-0 m-0">
@@ -22,7 +18,7 @@
     @endif
     @endforeach
     <br />
-    <a class="link-dark fw-bold mb-0 fs-8 text-decoration-none" href="#" target="_blank">
+    <a class="fw-bold mb-0 fs-8 text-decoration-none" href="#" target="_blank">
         {{$blog['title']}}
     </a>
     <p class="text-muted fs-8 m-0 p-0 text-justify lh-sm">

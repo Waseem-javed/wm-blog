@@ -1,7 +1,3 @@
-@extends('layouts.master')
-
-@section('title','Trendings')
-
 <p class="text-primary p-0 m-0">What's Trendings</p>
 @foreach($trendings as $trend)
 <div class="card mb-2" style="min-height: 120px">

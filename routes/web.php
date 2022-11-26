@@ -1,8 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\BlogController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\BlogController;
+use App\Http\Controllers\CoverController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,11 +14,11 @@ use App\Http\Controllers\AuthController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::middleware(['web'])->group(function(){
-
-Route::get('/dashboard',function(){
-    return view('home',['title'=>'Dashboard']);
-});
+Route::get('/',[CoverController::class,'cover']);
+Route::get('/contact',[CoverController::class,'contact']);
 Route::get('/blog',[BlogController::class,'blog']);
-Route::get('/signin',[AuthController::Class,'login']);
-});
+Route::get('/signin',[AuthController::Class,'login'])->name('signin');
+Route::get('/signup',[AuthController::Class,'register']);
+Route::post('/signin',[AuthController::Class,'loginUser']);
+Route::post('/signup',[AuthController::Class,'registerUser']);
+Route::get('/logout',[AuthController::Class,'logoutUser']);

@@ -12,7 +12,7 @@ class BlogService {
 
     const PAGE_LENGTH =10;
     public function __construct(private readonly BlogRepository $service){
-
+        
     }
 
     public function getAllPosts(Request $request): array

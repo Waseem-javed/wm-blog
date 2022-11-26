@@ -1,35 +1,89 @@
-@extends('layouts.master')
-@section('title','Signin')
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="waseem javed">
+    <title>Signin</title>
+    <link rel="stylesheet" href="{{ asset('css/app.css') }}" />
+    <style>
+      html,
+body {
+  height: 100%;
+}
 
-@section('content')
+body {
+  display: flex;
+  align-items: center;
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
 
-<div class="container-fluid justify-content-center align-items-center">
-    <div class="row">
-        <div class="col-sm-4 mx-auto mt-5">
-            <form class="needs-validation" novalidate>
-                <div class="card p-4">
-                    <h4 class="text-primary">Sign In</h4>
-                    <div class="form-floating mb-3">
-                        <input type="email" class="form-control is-valid" id="username" required>
-                        <label for="username">Email or Username</label>
-                        <div class="valid-feedback">
-                            Username is required!
-                        </div>
-                    </div>
-                    <div class="form-floating">
-                        <input type="password" class="form-control is-invalid" id="password" required>
-                        <label for="password">Password</label>
-                        <div class="invalid-feedback">
-                            Password is required!
-                        </div>
-                    </div>
-                    <div class="mt-3">
-                        <button type="submit" class="btn btn-primary">Sign In</button>
-                    </div>
-                </div>
-            </form>
+.form-signin {
+  max-width: 330px;
+  padding: 15px;
+}
+
+.form-signin .form-floating:focus-within {
+  z-index: 2;
+}
+
+.form-signin input[type="email"] {
+  margin-bottom: -1px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.form-signin input[type="password"] {
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+    </style>
+  </head>
+  <body class="bg-dark">
+    
+<main class="form-signin w-100 m-auto">
+  <form action="/signin" method="POST" class="needs-validation" novalidate>
+    @csrf
+    <center>
+      <a href="/">
+        <img class="mb-4" src="/logo.png" alt="n--img" width="110" height="80">
+      </a>
+    </center>
+    <h1 class="h3 mb-3 fw-normal text-white">Sign In</h1>
+    <div class="form-floating">
+      <input type="email" name="email" class="form-control @error('email') is-invalid @enderror" id="floatingInput" placeholder="name@example.com">
+      <label for="floatingInput">Email address</label>
+      @error('email')
+        <div class="invalid-feedback">
+            {{$message}}
         </div>
+      @enderror
     </div>
-</div>
+    <div class="form-floating">
+      <input type="password" name="password" class="form-control  @error('password') is-invalid @enderror" id="floatingPassword" placeholder="Password">
+      <label for="floatingPassword">Password</label>
+      @error('password')
+        <div class="invalid-feedback">
+            {{$message}}
+        </div>
+        @enderror
+    </div>
 
-@stop
+    <div class="checkbox">
+      <label class="text-white">
+        <input type="checkbox" value="remember-me"> Remember me
+        <p class="text-muted fs-6">create new account..?<a href="/signup"> sign up</a></p>
+      </label>
+    </div>
+    <button class="w-100 btn btn-sm py-2 btn-primary" type="submit">Sign in</button>
+    <p class="mt-5 mb-3 text-muted text-center">Meesaw &copy; {{date('d-M-Y')}}</p>
+  </form>
+</main>
+
+
+    
+  </body>
+</html>

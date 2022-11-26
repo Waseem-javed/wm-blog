@@ -1,6 +1,3 @@
-@extends('layouts.master')
-
-@section('title','Recents')
 <p class="text-primary p-0 m-0">Recent Written</p>
 @foreach($recents as $recent)
 <div class="card mb-2" style="min-height: 120px">

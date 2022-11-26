@@ -4,7 +4,7 @@
 @section('content')
 <div class="container-fluid">
     <div class="row justify-content-around">
-        <div class="col-sm-8">
+        <div class="col-sm-12">
             <div class="row my-2">
                 <div class="col-sm-9 col-lg-9 m-0 px-1">
                     <p class="text-primary p-0 m-0">All Posts</p>
