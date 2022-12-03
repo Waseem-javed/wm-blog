@@ -1,9 +1,10 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\AuthController;
-use App\Http\Controllers\BlogController;
-use App\Http\Controllers\CoverController;
+use App\Http\Controllers\auth\AuthController;
+use App\Http\Controllers\client\BlogController;
+use App\Http\Controllers\client\CoverController;
+use App\Http\Controllers\admin\AdminController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -22,3 +23,6 @@ Route::get('/signup',[AuthController::Class,'register']);
 Route::post('/signin',[AuthController::Class,'loginUser']);
 Route::post('/signup',[AuthController::Class,'registerUser']);
 Route::get('/logout',[AuthController::Class,'logoutUser']);
+
+// admin routes
+Route::get('/admin',[AdminController::Class,'index']);

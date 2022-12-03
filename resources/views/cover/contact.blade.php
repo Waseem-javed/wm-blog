@@ -5,8 +5,8 @@
 
 <div class="container">
    
-	<div class="row">
-     <div class="col-6">
+	<div class="row pt-5">
+     <div class="col">
           <h4><strong>Get in Touch</strong></h4>
         <form>
           <div class="form-floating mb-3">
@@ -37,7 +37,7 @@
           @enderror
         </div>
         <div class="form-floating mb-3">
-          <textarea class="form-control @error('phone') is-invalid @enderror" name="comment" placeholder="Leave a comment here" id="comment"></textarea>
+          <textarea class="form-control h-75 @error('phone') is-invalid @enderror" name="comment" placeholder="Leave a comment here" id="comment"></textarea>
           <label for="floatingTextarea">Comments</label>
           @error('comment')
           <div class="invalid-feedback">
@@ -52,10 +52,15 @@
         </div>
         </form>
       </div>
+      <div class="col">
+        some details
+      </div>
     </div>
 
-    <div class="container-fluid m-0 p-0">
-      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3318.0272512914535!2d73.0844536145074!3d33.73411144187651!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38dfbf7d933cf97b%3A0x8dffdd8a241d58c!2sKhyber%20Pakhtunkhwa%20House!5e0!3m2!1sen!2s!4v1669286941829!5m2!1sen!2s" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    <div class="row">
+      <div class="col">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3318.0272512914535!2d73.0844536145074!3d33.73411144187651!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38dfbf7d933cf97b%3A0x8dffdd8a241d58c!2sKhyber%20Pakhtunkhwa%20House!5e0!3m2!1sen!2s!4v1669286941829!5m2!1sen!2s" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
     </div>
 
 </div>

@@ -1,38 +1,51 @@
 @foreach($blogs as $blog)
-<div class="card mb-2 border border-secondary cardHover bg-dark">
-    <span onClick="redirectTo('{{$blog['url']}}')">
-        <div class="row g-0">
-            <div class="col-sm-4 col-lg-4 col-md-4 position-relative p-0 m-0">
-                <img src="{{$blog['image_url_portait']}}" class="card-img fit-contain w-100 h-100" alt="...">
+<div class="card bg-dark mb-2 shadow">
+    <div class="card-header">
+        <div class="d-flex justify-content-between align-items-center">
+            <div class="d-flex justify-content-between align-items-center">
+                <div class="mr-2 p-1">
+                    <img class="rounded-circle p-1 bg-secondary" width="45" src="{{$blog['author_image_url']}}"" alt="">
+                </div>
+                <div class="ml-2">
+                    <div class="h7 mt-2">{{$blog['author']}}</div>
+                    <div class="text-muted small mb-2"> <i class="fa fa-clock-o"></i> {{date('g:i a, d M y', strtotime($blog['created_at']));}}</div>
+                </div>
             </div>
-
-            <div class="col-sm-8 col-lg-8 col-md-8">
-                <div class="card-body">
-                    <small class="small fs-8 text-muted">{{$blog['date']}}</small>
-                    <br />
-                    @foreach($blog['tags'] as $tag)
-                    <span class="text-primary fw-bolder fs-8 text-capitalize">{{$tag['tag']}}</span>
-                    @if($loop->iteration < count($blog['tags'])) <span
-                        class="text-primary fw-bolder gs-6 pe-1">&#x2022;
-    </span>
-    @endif
-    @endforeach
-    <br />
-    <a class="fw-bold mb-0 fs-8 text-decoration-none" href="#" target="_blank">
-        {{$blog['title']}}
-    </a>
-    <p class="text-muted fs-8 m-0 p-0 text-justify lh-sm">
-        {{substr($blog['description'],0,250)}}
-        ... <a href="#" class="small fs-8">Read
-            More</a>
-    </p>
-
-    <p class="pt-3">
-        <img class="rounded-pill" src="{{$blog['author_image_url']}}" height="30" width="30" alt="user">
-        <span>{{$blog['author']}}</span>
-    </p>
-</div>
-</div>
-</div></span>
+            <div>
+                <div class="dropdown">
+                    <button class="btn btn-link dropdown-toggle" type="button" id="gedf-drop1" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="fa fa-caret"></i>
+                    </button>
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="gedf-drop1">
+                        <div class="h6 dropdown-header">Configuration</div>
+                        <a class="dropdown-item" href="#">Save</a>
+                        <a class="dropdown-item" href="#">Hide</a>
+                        <a class="dropdown-item" href="#">Report</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="card-body">
+        
+        <h5 class="card-title"><a class="card-link text-decoration-none" href="#">{{$blog['title']}}</a></h5>
+        <p class="card-text text-justify">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam omnis nihil, aliquam est, voluptates officiis iure soluta
+            alias vel odit, placeat reiciendis ut libero! Quas aliquid natus cumque quae repellendus. Lorem
+            ipsum dolor sit amet consectetur adipisicing elit. Ipsa, excepturi. Doloremque, reprehenderit!
+            Quos in maiores, soluta doloremque molestiae reiciendis libero expedita assumenda fuga quae.
+            Consectetur id molestias itaque facere? Hic!
+        </p>
+        <div class="p-0 m-0">
+            @foreach($blog['tags'] as $tag)
+            <span class="badge border">{{$tag['tag']}}</span>
+            @endforeach
+        </div>
+    </div>
+    <div class="card-footer">
+        <a href="#" class="card-link text-decoration-none"><i class="fa fa-gittip"></i> Like</a>
+        <a href="#" class="card-link text-decoration-none"><i class="fa fa-comment"></i> Comment</a>
+        <a href="#" class="card-link text-decoration-none"><i class="fa fa-mail-forward"></i> Share</a>
+    </div>
 </div>
 @endforeach

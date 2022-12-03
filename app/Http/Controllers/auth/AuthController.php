@@ -1,7 +1,8 @@
 <?php 
 
 declare(strict_types=1);
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\auth;
+use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Contracts\View\View;
@@ -17,7 +18,7 @@ class AuthController extends Controller {
     public function login(Request $request): View{
 
         if(Auth::check()){
-            return view('home');
+            return view('cover.home');
         }
 
         return view('auth.signin');
@@ -25,7 +26,7 @@ class AuthController extends Controller {
 
     public function register(Request $request):View{
         if(Auth::check()){
-            return view('home');
+            return view('cover.home');
         }
         return view('auth.signup');
     }

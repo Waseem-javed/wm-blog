@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Meesaw-@yield('title')</title>
     <link rel="stylesheet" href="{{ asset('css/app.css') }}" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body class="d-flex text-bg-dark">
 
@@ -13,7 +14,9 @@
 
       <header class="row fixed-top text-bg-dark py-3">
         <div class="col-sm-8 mx-auto">
-          <h3 class="float-md-start text-center mb-0">Cover</h3>
+          <h3 class="float-md-start text-center mb-0">
+            <a class="navbar-brand" href=""><img class="" src="/logo.png" alt="n--img" width="50" height="35"></a>
+          </h3>
           <nav class="nav nav-masthead justify-content-center float-md-end">
             <a class="nav-link fw-bold py-1 px-0 {{ Request::is('/') ? 'active' : '' }}" aria-current="page" href="/">Home</a>
             <a class="nav-link fw-bold py-1 px-0 {{ Request::is('features') ? 'active' : '' }}" href="#">Features</a>
@@ -29,7 +32,7 @@
       </header>
 
     <div class="row py-5">
-      <div class="col-sm-8 mx-auto">
+      <div class="col-sm-12 mx-auto">
         @yield('content')
       </div>
     </div>
